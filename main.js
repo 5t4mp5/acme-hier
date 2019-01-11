@@ -40,9 +40,10 @@ const myTree = showManagementStructure(users);
 function printTree(employee){
   let output = '';
 
-  output += `{${employee.name}: `;
-  if(employee.subordinates){
-    output += employee.subordinates.map(sub => printTree(sub)) + '}';
+  output += `${employee.name} `;
+  if(employee.subordinates.length){
+    output += `: [`;
+    output += employee.subordinates.map(sub => printTree(sub)).join(' ') + ']';
   }
 
 
