@@ -10,6 +10,16 @@ const users = [
   { id: 5, name: 'groucho', managerId: 4 },
 ];
 
+const micros = [
+  {id: 1, name: 'Louie'},
+  {id: 2, name: 'Alvin', managerId: 1},
+  {id: 3, name: 'JP', managerId: 2},
+  {id: 4, name: 'Josh', managerId: 1},
+  {id: 5, name: 'Jeremy', managerId: 3},
+  {id: 6, name: 'Johnny', managerId: 2},
+  {id: 7, name: 'Dave', managerId: 6},
+];
+
 class EmployeeTree {
   constructor(employee) {
     this.employee = employee;
