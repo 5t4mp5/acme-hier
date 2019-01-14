@@ -31,10 +31,10 @@ function printTree(emp, padder = '') {
   let output = '';
   output += emp.employee.name + '\n';
   if (emp.subordinates.length) {
-    padder += '   '
+    padder += '       ';
     emp.subordinates.forEach(sub => {
       output += padder;
-      output += '--' + printTree(sub, padder);
+      output += '-' + printTree(sub, padder);
     });
   }
   return output;
@@ -47,9 +47,7 @@ function showManagementStructure(hArr) {
     eTree.insert(employee);
   });
 
-  console.log(printTree(eTree));
-
-  return eTree;
+  return printTree(eTree);
 }
 
 
