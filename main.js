@@ -21,19 +21,18 @@ class EmployeeTree {
       });
     }
   }
-}
-
-function printTree(emp, padder = '') {
-  let output = '';
-  output += emp.employee.name + '\n';
-  if (emp.subordinates.length) {
-    padder += '       ';
-    emp.subordinates.forEach(sub => {
-      output += padder;
-      output += '-' + printTree(sub, padder);
-    });
+  printTree(padder = '') {
+    let output = '';
+    output += this.employee.name + '\n';
+    if (this.subordinates.length) {
+      padder += '       ';
+      this.subordinates.forEach(sub => {
+        output += padder;
+        output += '-' + sub.printTree(padder);
+      });
+    }
+    return output;
   }
-  return output;
 }
 
 function showManagementStructure(hArr) {
@@ -43,7 +42,7 @@ function showManagementStructure(hArr) {
     eTree.insert(employee);
   });
 
-  return printTree(eTree);
+  return eTree.printTree();
 }
 
 
