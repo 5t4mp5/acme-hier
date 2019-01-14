@@ -9,7 +9,6 @@ const users = [
 class EmployeeTree {
   constructor(employee) {
     this.employee = employee;
-    this.name = employee.name;
     this.subordinates = [];
   }
 
@@ -34,24 +33,3 @@ function showManagementStructure(hArr) {
   return eTree;
 }
 
-const myTree = showManagementStructure(users);
-
-function printTree(emp) {
-  let output = '';
-
-  output += emp.name;
-  output += `
-      --${emp.subordinates[0].name}`;
-  return output;
-
-}
-
-printTree(myTree);
-
-
-/*
-
-moe
-  --larry
-
-*/
