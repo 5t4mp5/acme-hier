@@ -6,7 +6,25 @@ const users = [
   { id: 5, name: 'groucho', managerId: 4 },
 ];
 
-class EmployeeTree {
+
+function showManagementStructure(hArr, current, pad = '-'){
+  let arrCopy = hArr.slice();
+  if(!current){
+    current = arrCopy.shift();
+  }
+
+  console.log(pad, current.name);
+
+  const subordinates = arrCopy.filter(user => user.managerId === current.id);
+
+  if(subordinates.length){
+    pad = '   ' + pad;
+    subordinates.forEach(sub => showManagementStructure(hArr, sub, pad));
+  }
+
+}
+
+/*class EmployeeTree {
   constructor(employee) {
     this.employee = employee;
     this.subordinates = [];
@@ -43,7 +61,8 @@ function showManagementStructure(hArr) {
   });
 
   return eTree.printTree();
-}
+}*/
+
 
 
 
